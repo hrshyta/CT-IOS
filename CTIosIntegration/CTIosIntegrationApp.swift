@@ -6,12 +6,24 @@
 //
 
 import SwiftUI
+import CleverTapSDK
 
 @main
-struct CTIosIntegrationApp: App {
-    var body: some Scene {
+struct CTIosIntegrationApp: App
+{
+    var body: some Scene
+    {
         WindowGroup {
             ContentView()
         }
     }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject:AnyObject]?) -> Bool {
+    
+        CleverTap.autoIntegrate()
+        CleverTap.setDebugLevel(CleverTapLogLevel.debug.rawValue)
+        return true
+        
+    }
+    
 }
